@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace SolarPowerEngineering
 {
     public class CustomArray<T> : IArrayManagement<T>, IEnumerable<T>
     {
-        private List<T> _data = new List<T>();
+        private T[]_data = new T[0];
 
         public T this[int index]
         {
@@ -14,14 +16,20 @@ namespace SolarPowerEngineering
 
         public void Add(T element)
         {
-            _data.Add(element);
+            T[] newData = new T[_data.Length + 1];
+            _data.CopyTo(newData, 0);
+            newData[_data.Length] = element;
+            _data = newData;
         }
 
-        public int Count => _data.Count;
+        public int Count => _data.Length;
 
         public IEnumerator<T> GetEnumerator()
         {
-            return _data.GetEnumerator();
+            foreach (var item in _data)
+            {
+                yield return item;
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()

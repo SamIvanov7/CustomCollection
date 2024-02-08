@@ -1,4 +1,7 @@
-﻿namespace SolarPowerEngineering
+﻿using System;
+using System.Linq;
+
+namespace SolarPowerEngineering
 {
     class Program
     {
@@ -23,8 +26,8 @@
             }
 
             // Using LINQ for filtering
-            var filtered = customArray.Where(x => x > 5).ToArray();
-            Console.WriteLine("\nFiltered (greater than 5):");
+            var filtered = customArray.Where(x => x > 3).ToArray();
+            Console.WriteLine("\nFiltered (greater than 3):");
             foreach (var item in filtered)
             {
                 Console.WriteLine(item);

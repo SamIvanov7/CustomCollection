@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace SolarPowerEngineering
 {
     public class NotifyingCustomArray<T> : IArrayManagement<T>, IEnumerable<T>
     {
-        private CustomArray<T> _innerArray;
+        private CustomArray<T>_innerArray;
         public event EventHandler ArrayExpanded;
 
         public NotifyingCustomArray()
